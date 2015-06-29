@@ -260,7 +260,7 @@ public class AutoFTPFrontEndCommandClient extends Thread {
 
     }//end set
 
-    public String getSocketServerAddress() {
+    public String getRemoteSocketServerAddress() {
         return socketAddress;
     }//end get     
 
@@ -268,7 +268,7 @@ public class AutoFTPFrontEndCommandClient extends Thread {
 
     }//end set
 
-    public int getSocketServerPort() {
+    public int getRemoteSocketServerPort() {
         return socketPort;
     }//end get     
 
@@ -299,10 +299,8 @@ public class AutoFTPFrontEndCommandClient extends Thread {
     }//end get
 
     public void SetConfig(String cfg) throws Exception {
-        //cfg=cfg.replace(";socketServerAddress;", socketAddress);
-        //cfg=cfg.replace(";socketServerPort;", socketPort+"");
         //System.out.println(cfg);
-        String[] config = cfg.split("::");
+        /*String[] config = cfg.split("::");
         if (config.length >= 13) {
 
             config[10] = socketAddress;
@@ -311,7 +309,7 @@ public class AutoFTPFrontEndCommandClient extends Thread {
             for (int i = 1; i < config.length; i++) {
                 cfg = cfg + "::" + config[i];
             }//end for
-        }
+        }*/
 
         out.println("<CMD>setConfig=" + cfg + "</CMD>");
         out.println("ACK");

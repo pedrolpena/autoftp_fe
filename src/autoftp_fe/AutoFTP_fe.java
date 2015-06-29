@@ -61,8 +61,8 @@ public class AutoFTP_fe extends Thread {
             Thread.sleep(4000);
 
             autoFTPFrontEnd = new AutoFTPFrontEndForm();
-            autoFTPFrontEnd.setSocketServerAddress(socketServerAddress);
-            autoFTPFrontEnd.setSocketServerPort(socketServerPort + "");
+            autoFTPFrontEnd.setLocalSocketServerAddress(socketServerAddress);
+            autoFTPFrontEnd.seLocalSocketServerPort(socketServerPort + "");
             aftpcc = new AutoFTPFrontEndCommandClient(socketServerAddress, socketServerPort);
             aftpcc.start();
 
@@ -83,8 +83,8 @@ public class AutoFTP_fe extends Thread {
                     autoFTPFrontEnd.setLogFilePath(aftpcc.getlogFilePath());
                     autoFTPFrontEnd.setQueuePath(aftpcc.getQueuePath());
                     autoFTPFrontEnd.setFileSizeLimit(aftpcc.getFileSizeLimit());
-                    //autoFTPFrontEnd.setSocketServerAddress(aftpcc.getSocketServerAddress());
-                    //autoFTPFrontEnd.setSocketServerPort(aftpcc.getSocketServerPort() + "");
+                    autoFTPFrontEnd.setRemoteSocketServerAddress(aftpcc.getRemoteSocketServerAddress());
+                    autoFTPFrontEnd.setRemoteSocketServerPort(aftpcc.getRemoteSocketServerPort()+"");
                     autoFTPFrontEnd.setPassword(aftpcc.getPaswword());
                     autoFTPFrontEnd.setTransmitEnable(aftpcc.getTransmitEnable());
                     autoFTPFrontEnd.setUseModem(aftpcc.getUseModem());
@@ -97,8 +97,8 @@ public class AutoFTP_fe extends Thread {
 
                 if (autoFTPFrontEnd.isFormSaved()) {
                     aftpcc.SetConfig(autoFTPFrontEnd.getCurrentConfig());
-                    prefs.put("socketServerAddress", autoFTPFrontEnd.getSocketServerAddress());
-                    prefs.put("socketServerPort", autoFTPFrontEnd.getSocketServerPort());
+                    prefs.put("socketServerAddress", autoFTPFrontEnd.getLocalSocketServerAddress());
+                    prefs.put("socketServerPort", autoFTPFrontEnd.getLocalSocketServerPort());
 
                 }//end if
 
