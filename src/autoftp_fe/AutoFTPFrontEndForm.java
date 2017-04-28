@@ -10,6 +10,7 @@
  */
 package autoftp_fe;
 
+import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
 
 public class AutoFTPFrontEndForm extends javax.swing.JFrame{
@@ -156,6 +157,11 @@ public class AutoFTPFrontEndForm extends javax.swing.JFrame{
         jLabel8.setText("Use modem");
 
         queueLocationButton.setText("Browse");
+        queueLocationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                queueLocationButtonActionPerformed(evt);
+            }
+        });
 
         queuePathTextField.setEditable(false);
         queuePathTextField.setText("/home/pena/auto_ftp_queue");
@@ -251,9 +257,9 @@ public class AutoFTPFrontEndForm extends javax.swing.JFrame{
                     .addComponent(logFileLocationButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(transmitEnableCheckBox))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(transmitEnableCheckBox)
+                        .addComponent(jLabel7))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8)
                         .addComponent(useModemCheckBox)))
@@ -461,6 +467,12 @@ public class AutoFTPFrontEndForm extends javax.swing.JFrame{
     private void queueRefreshTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queueRefreshTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_queueRefreshTextFieldActionPerformed
+
+    private void queueLocationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_queueLocationButtonActionPerformed
+        // TODO add your handling code here:
+        //final JFileChooser fc = new JFileChooser();
+        //int returnVal = fc.showOpenDialog(this);
+    }//GEN-LAST:event_queueLocationButtonActionPerformed
 
 
 
@@ -671,7 +683,7 @@ public class AutoFTPFrontEndForm extends javax.swing.JFrame{
         return currentConfig;
     }//endgetCurrentConfig
 
-    public void appendFTPStatusMessage(String msg) {
+    public void appendFTPStatusMessage(final String msg) {
 
         SwingUtilities.invokeLater(new Runnable() {
             // except this is queued onto the event thread.
@@ -684,7 +696,7 @@ public class AutoFTPFrontEndForm extends javax.swing.JFrame{
 
     }
 
-    public void setQueueStatusMessage(String msg) {
+    public void setQueueStatusMessage(final String msg) {
 
         SwingUtilities.invokeLater(new Runnable() {
             // except this is queued onto the event thread.

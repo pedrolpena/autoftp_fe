@@ -56,9 +56,9 @@ public class AutoFTP_fe extends Thread {
 
             AutoFTPFrontEndForm autoFTPFrontEnd;
             AutoFTPFrontEndCommandClient aftpcc;
-            AutoFTPThread aftpT = new AutoFTPThread();
-            aftpT.start();
-            Thread.sleep(4000);
+//            AutoFTPThread aftpT = new AutoFTPThread();
+//            aftpT.start();
+//            Thread.sleep(4000);
 
             autoFTPFrontEnd = new AutoFTPFrontEndForm();
             autoFTPFrontEnd.setLocalSocketServerAddress(socketServerAddress);

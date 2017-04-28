@@ -180,6 +180,7 @@ public class AutoFTPFrontEndCommandClient extends Thread {
         }//end try
         catch (Exception e) {
             e.printStackTrace();
+            
         }//end catch        
 
     }//end run

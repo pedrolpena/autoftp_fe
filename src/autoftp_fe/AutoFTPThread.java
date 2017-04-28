@@ -7,6 +7,7 @@ package autoftp_fe;
 
 import autoftp.AutoFTP;
 
+
 /**
  *
  * @author pedro
@@ -15,7 +16,7 @@ public class AutoFTPThread extends Thread {
 
     public void run() {
         String[] a = new String[1];
-        a[0] = "false";
+        a[0] = "true";
 
         AutoFTP.main(a);
 
